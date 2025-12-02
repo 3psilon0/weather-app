@@ -3,13 +3,113 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="./public/favicon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="node_modules/modern-normalize/modern-normalize.css">
     <link rel="stylesheet" href="/src/styles.css">
-    <title>Weather App ☀️</title>
+    <title>Weatherly</title>
   </head>
   <body>
-    <div id="app">
-    </div>
+    <header class="header">
+      <div class="logo-container">
+        <img src="./src/assets/icons/logo.png" alt="Logo" class="logo-icon">
+        <h1 class="logo-text">Weatherly</h1>
+      </div>
+      <div class="search-bar-container">
+        <input type="search" name="search" placeholder="Search for a city, town or US ZIP code" class="search-bar">
+      </div>
+    </header>
+    
+    <main class="content">
+      <div class="main-widget">
+        <div class="loc-date">
+          <h1 class="location-text">Location Address</h1>
+          <p class="date-text">Date</p>
+          <p class="dow-text">Day of week</p>
+        </div>
+        <div class="general-cond">
+          <img src="./src/assets/icons/weather/rain.svg" alt="Condition" class="current-cond-icon">
+          <div class="current-info">
+            <div class="current-temp">
+              <p class="current-temp-value">0.0</p>
+              <p data-selected="metric" class="unit-toggle-buttons"><span class="metric-toggle unit-active"> ° C</span> | <span class="imperial-toggle"> ° F</span></p>
+            </div>
+            <p class="current-cond-desc">Undefined</p>
+            <p class="current-feelslike">feels like <span class="feelslike-value">0.0 °</span></p>
+          </div>
+          
+        </div>
+      </div>
+
+      <div class="dawn-dusk">
+        <div class="tooltip sunrise-tooltip"><img src="./src/assets/icons/weather/sunrise.svg" alt="Sunrise" class="dawn-dusk-icon"></div>
+        <div class="tooltip dawn-dusk-bar-container now-tooltip">
+          <div class="dawn-dusk-bar"></div>
+        </div>
+        <div class="tooltip sunset-tooltip"><img src="./src/assets/icons/weather/sunset.svg" alt="sunset" class="dawn-dusk-icon"></div>
+      </div>
+
+      <div class="extra-cond">
+
+        <div class="cond-col">
+          <div class="tooltip cond cond-tooltip" data-tooltip="Maximum Temperature">
+            <img src="./src/assets/icons/weather/high.svg" alt="Maximum temperature" class="cond-icon" aria-label="Maximum temperature">
+            <p class="max-temp-value">0</p>
+          </div>
+          <div class="tooltip cond cond-tooltip" data-tooltip="Minimum Temperature">
+            <img src="./src/assets/icons/weather/low.svg" alt="Minimum temperature" class="cond-icon" aria-label="Minimum temperature">
+            <p class="min-temp-value">0</p>
+          </div>
+        </div>
+
+        <div class="cond-col">
+          <div class="tooltip cond cond-tooltip" data-tooltip="Wind Speed">
+            <img src="./src/assets/icons/weather/windsock.svg" alt="Wind speed" class="cond-icon" aria-label="Wind speed">
+            <p class="wind-speed-value">0</p>
+          </div>
+          <div class="tooltip cond cond-tooltip" data-tooltip="Wind Direction">
+            <img src="./src/assets/icons/weather/compass.svg" alt="Wind direction" class="cond-icon" aria-label="Wind direction">
+            <p class="wind-dir-value">0</p>
+          </div>
+        </div>
+
+        <div class="cond-col">
+          <div class="tooltip cond cond-tooltip" data-tooltip="Humidity">
+            <img src="./src/assets/icons/weather/humidity.svg" alt="" class="cond-icon" aria-label="Humidity">
+            <p class="humidity-value">0</p>
+          </div>
+          <div class="tooltip cond cond-tooltip" data-tooltip="Pressure">
+            <img src="./src/assets/icons/weather/barometer.svg" alt="Pressure" class="cond-icon" aria-label="Pressure">
+            <p class="pressure-value">0</p>
+          </div>
+        </div>
+
+        <div class="cond-col">
+          <div class="tooltip cond cond-tooltip" data-tooltip="Visibility">
+            <img src="./src/assets/icons/weather/mist.svg" alt="Visibility" class="cond-icon" aria-label="Visibility">
+            <p class="visibility-value">0</p>
+          </div>
+          <div class="tooltip cond cond-tooltip" data-tooltip="UV Index">
+            <img src="./src/assets/icons/weather/uv-index.svg" alt="UV index" class="cond-icon" aria-label="UV index">
+            <p class="uv-value">0</p>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="forecast">
+        <p class="forecast-title">Forecast by the <span data-selected="hour" class="forecast-toggle-buttons"><span class="hour-toggle unit-active  ">hour</span> | <span class="day-toggle">day</span></span></p>
+        <div class="forecast-card-container">
+        </div>
+      </div>
+
+      <div class="weather-chart-container">
+        <canvas id="weather-chart"></canvas>
+      </div>
+    </main>
+
     <script type="module" src="/src/scripts/main.js"></script>
   </body>
 </html>
