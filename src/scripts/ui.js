@@ -88,21 +88,21 @@ const createForecastCard = (datetimeEpoch, timezone, iconName, temp, windSpeed, 
                 <img src=${getIcon(iconName)} alt="Card Icon" class="card-cond-icon">
               </div>
               <div class="card-stat">
-                <img src="./src/assets/icons/weather/thermometer.svg" alt="Temp" class="card-val-icon">
+                <img src=${getIcon('thermometer')} alt="Temp" class="card-val-icon">
                 <p class="card-value">${temp} ${units.DEGREE}</p>
               </div>
             </div>
             <div class="card-back">
               <div class="card-stat">
-                <img src="./src/assets/icons/weather/windsock.svg" alt="Wind Speed" class="card-val-icon">
+                <img src=${getIcon('windsock')} alt="Wind Speed" class="card-val-icon">
                 <p class="card-value">${windSpeed} ${units.DISTANCE}</p>
               </div>
               <div class="card-stat">
-                <img src="./src/assets/icons/weather/compass.svg" alt="Wind Direction" class="card-val-icon">
+                <img src=${getIcon('compass')} alt="Wind Direction" class="card-val-icon">
                 <p class="card-value">${windDir} °</p>
               </div>
               <div class="card-stat">
-                <img src="./src/assets/icons/weather/humidity.svg" alt="Humidity" class="card-val-icon">
+                <img src=${getIcon('humidity')} alt="Humidity" class="card-val-icon">
                 <p class="card-value">${humidity} %</p>
               </div>
               
