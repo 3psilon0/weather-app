@@ -87,6 +87,15 @@ const handleForecastToggle = (event, metricData, imperialData) => {
         }
 }
 
+const resetToggles = () => {
+    const selectedUnit = document.querySelector('.unit-toggle-buttons').dataset.selected;
+    const selectedForecastType = document.querySelector('.forecast-toggle-buttons').dataset.selected;
+
+    if (selectedUnit === 'imperial'){
+        Array.from(document.querySelector('.unit-toggle-buttons').children).forEach(child => child.classList.toggle('unit-active'));
+    }
+}
+
 export const handleSearch = async (event) => {
     event.preventDefault();
     const searchQuery = event.currentTarget.value;
@@ -95,6 +104,8 @@ export const handleSearch = async (event) => {
     imperialData = await getData(searchQuery, "us");
 
     handleMetric(metricData);
+
+    resetToggles();
 
     document.querySelector('.unit-toggle-buttons').addEventListener("click", (event) => {
         handleUnitToggle(event, metricData, imperialData);
