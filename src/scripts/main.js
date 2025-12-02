@@ -1,10 +1,7 @@
-import getData from './api.js'
-import {displayCurrentData, displayForecastCards} from './ui.js'
-import {UNITS_METRIC, UNITS_IMPERIAL } from './units.js';
 import { handleSearch } from './eventHandlers.js';
 
 document.querySelector('.search-bar').addEventListener("keydown", (event) => {
-    if(event.code === "Enter"){
+    if(event.key === 'Enter'){
         handleSearch(event);
     }
 })
